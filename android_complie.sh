@@ -1,0 +1,143 @@
+#!/bin/bash
+
+# 设置 OpenCV 和 ONNX lib路径
+export OPENCV_PATH=/data1/android_arm64/opencv-4.11.0-android-sdk/OpenCV-android-sdk/sdk/native
+export ONNX_PATH=/data1/android_arm64
+
+# 设置输出目录
+mkdir -p build && cd build
+
+# 编译命令，涉及opencv,onnx,android等自带库文件
+/data1/ndk-arm64/bin/aarch64-linux-android-g++ \
+    -std=c++17 \
+    -fPIC \
+    -stdlib=libc++ \
+    -static-libstdc++ \
+    -shared \
+    -o libmyappp.so \
+    ../yolo_obb_onnx.cpp \
+    -I$OPENCV_PATH/jni/include \
+    -I$ONNX_PATH/include \
+    -L$OPENCV_PATH/staticlibs/arm64-v8a \
+    -L$OPENCV_PATH/3rdparty/libs/arm64-v8a \
+    -L$ONNX_PATH/lib \
+    -L$ONNX_PATH/onnx_lib \
+    -lopencv_core \
+    -lopencv_imgproc \
+    -lopencv_highgui \
+    -lopencv_calib3d \
+    -lopencv_dnn \
+    -lopencv_flann \
+    -lopencv_objdetect \
+    -lopencv_stitching \
+    -lopencv_videoio \
+    -lopencv_features2d \
+    -lopencv_gapi \
+    -lopencv_imgcodecs \
+    -lopencv_ml \
+    -lopencv_photo \
+    -lopencv_video \
+    -lIlmImf \
+    -lcpufeatures \
+    -lkleidicv \
+    -lkleidicv_thread \
+    -llibopenjp2 \
+    -llibwebp \
+    -ltegra_hal \
+    -lade \
+    -littnotify \
+    -lkleidicv_hal \
+    -llibjpeg-turbo \
+    -llibpng \
+    -llibtiff \
+    -ltbb \
+    -lGeographicLib \
+    -labsl_bad_optional_access \
+    -labsl_demangle_rust \
+    -labsl_log_globals \
+    -labsl_stacktrace \
+    -lonnx_proto \
+    -labsl_bad_variant_access \
+    -labsl_examine_stack \
+    -labsl_log_internal_check_op \
+    -labsl_str_format_internal \
+    -lonnx_test_data_proto \
+    -labsl_base \
+    -labsl_exponential_biased \
+    -labsl_log_internal_conditions \
+    -labsl_strerror \
+    -lonnx_test_runner_common \
+    -labsl_city \
+    -labsl_flags_commandlineflag \
+    -labsl_log_internal_fnmatch \
+    -labsl_string_view \
+    -lonnxruntime_common \
+    -labsl_civil_time \
+    -labsl_flags_commandlineflag_internal \
+    -labsl_log_internal_format \
+    -labsl_strings \
+    -lonnxruntime_flatbuffers \
+    -labsl_cord \
+    -labsl_flags_config \
+    -labsl_log_internal_globals \
+    -labsl_strings_internal \
+    -lonnxruntime_framework \
+    -labsl_cord_internal \
+    -labsl_flags_internal \
+    -labsl_log_internal_log_sink_set \
+    -labsl_symbolize \
+    -lonnxruntime_graph \
+    -labsl_cordz_functions \
+    -labsl_flags_marshalling \
+    -labsl_log_internal_message \
+    -labsl_synchronization \
+    -lonnxruntime_lora \
+    -labsl_cordz_handle \
+    -labsl_flags_private_handle_accessor \
+    -labsl_log_internal_nullguard \
+    -labsl_throw_delegate \
+    -lonnxruntime_mlas \
+    -labsl_cordz_info \
+    -labsl_flags_program_name \
+    -labsl_log_internal_proto \
+    -labsl_time \
+    -lonnxruntime_optimizer \
+    -labsl_crc32c \
+    -labsl_flags_reflection \
+    -labsl_log_severity \
+    -labsl_time_zone \
+    -lonnxruntime_providers \
+    -labsl_crc_cord_state \
+    -labsl_graphcycles_internal \
+    -labsl_log_sink \
+    -labsl_utf8_for_code_point \
+    -lonnxruntime_session \
+    -labsl_crc_cpu_detect \
+    -labsl_hash \
+    -labsl_low_level_hash \
+    -labsl_vlog_config_internal \
+    -lonnxruntime_test_utils \
+    -labsl_crc_internal \
+    -labsl_hashtablez_sampler \
+    -labsl_malloc_internal \
+    -lcpuinfo \
+    -lonnxruntime_util \
+    -labsl_debugging_internal \
+    -labsl_int128 \
+    -labsl_raw_hash_set \
+    -lflatbuffers \
+    -labsl_decode_rust_punycode \
+    -labsl_kernel_timeout_internal \
+    -labsl_raw_logging_internal \
+    -lkleidiai \
+    -lre2 \
+    -labsl_demangle_internal \
+    -labsl_log_entry \
+    -labsl_spinlock_wait \
+    -lonnx \
+    -llog \
+    -lz \
+    -ltinyxml2 \
+    -lexif \
+    /data1/android_arm64/onnx_lib/libprotobuf-lite.a \
+    --sysroot=/data1/android-ndk-r28/toolchains/llvm/prebuilt/linux-x86_64/sysroot

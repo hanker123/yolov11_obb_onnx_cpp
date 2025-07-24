@@ -458,11 +458,12 @@ int main()
     // Ort::Session model_session = model_init(model_path, inputName, outputName, inputDims);
 
     const string img_path = "C.JPG";
+    const string save_img_path = "res.jpg";
     int targetWidth = 4000; 
     int targetHeight = 4000;
     float* out_data;
 
-    vector<Obb_Res> flag = model_predict(model_path, img_path, 
+    vector<Obb_Res> flag = model_predict(model_path, img_path, save_img_path 
                             targetWidth, 
                             targetHeight, 
                             out_data,

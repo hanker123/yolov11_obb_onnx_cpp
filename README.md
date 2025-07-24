@@ -11,4 +11,5 @@ g++ -o test yolo_obb_onnx.cpp -I include/ -L lib/ -lonnxruntime `pkg-config --cf
 ./test
 ## android
 bash android_compile.sh
-
+# Result
+<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/9824749d-8fe4-4382-802f-6b94674772b9" />

@@ -3,7 +3,7 @@ Implementing Rotated Object Detection Inference with YOLOv11 OBB, C++, and ONNX 
 
 # Introduce
 - Performing inference with YOLOv11 OBB ONNX on CPU using C++, with inference code implemented in C++ and leveraging frameworks such as OpenCV and ONNX, enabling cross-platform deployment on both Linux and Android platforms.
-- This version implements single-object rotation detection and multi-object rotation detection. Code modifications are required manually, or updates will be made in future versions.
+- This version implements double-object rotation detection and multi-object rotation detection. Code modifications are required manually, or updates will be made in future versions.
 
 # Start
 ## linux：

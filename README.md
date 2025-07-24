@@ -10,7 +10,7 @@ Implementing Rotated Object Detection Inference with YOLOv11 OBB, C++, and ONNX 
 `g++ -o test yolo_obb_onnx.cpp -I include/ -L lib/ -lonnxruntime pkg-config --cflags --libs opencv`  
 `./test`
 ## 2、android：
-- On the Android platform, the main output is a .so (shared object) library file, which can be called by other Android applications.
+- On the Android platform, the main output is a .so (shared object) library file, which can be called by other Android applications.  
 `bash android_compile.sh`
 # Result
 <img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/9824749d-8fe4-4382-802f-6b94674772b9" />

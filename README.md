@@ -6,10 +6,10 @@ Implementing Rotated Object Detection Inference with YOLOv11 OBB, C++, and ONNX 
 - This version implements single-object rotation detection and multi-object rotation detection. Code modifications are required manually, or updates will be made in future versions.
 
 # Start
-## 1、linux：
+## linux：
 `g++ -o test yolo_obb_onnx.cpp -I include/ -L lib/ -lonnxruntime pkg-config --cflags --libs opencv`  
 `./test`
-## 2、android：
+## android：
 - On the Android platform, the main output is a .so (shared object) library file, which can be called by other Android applications.  
 `bash android_compile.sh`
 # Result
